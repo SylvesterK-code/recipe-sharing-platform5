@@ -206,7 +206,7 @@ const AddRecipeForm = () => {
               value={ingredients}
               onChange={(e) => setIngredients(e.target.value)}
               className="w-full p-3 h-32 border rounded-lg bg-gray-100 dark:bg-gray-800 dark:text-white"
-              placeholder={"2 cups rice\n1 onion\nSalt"}
+              placeholder={"e.g\n2 cups rice\n1 onion\nSalt"}
             />
 
             {errors.ingredients && (
@@ -224,7 +224,7 @@ const AddRecipeForm = () => {
               value={steps}
               onChange={(e) => setSteps(e.target.value)}
               className="w-full p-3 h-32 border rounded-lg bg-gray-100 dark:bg-gray-800 dark:text-white"
-              placeholder={"Boil water\nAdd rice\nCook for 20 minutes"}
+              placeholder={"e.g\nBoil water\nAdd rice\nCook for 20 minutes"}
             />
 
             {errors.steps && <p className="text-red-500">{errors.steps}</p>}
