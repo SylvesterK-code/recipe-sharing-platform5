@@ -134,7 +134,7 @@ const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Create a strong password"
-                className="w-full bg-transparent outline-none"
+                className="w-full bg-transparent outline-none dark:text-white"
               />
             </div>
             {errors.password && (
@@ -155,7 +155,7 @@ const Signup = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm your password"
-                className="w-full bg-transparent outline-none"
+                className="w-full bg-transparent outline-none dark:text-white"
               />
             </div>
             {errors.confirmPassword && (
