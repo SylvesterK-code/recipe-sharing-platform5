@@ -91,7 +91,7 @@ const SignIn = () => {
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-3 bg-transparent border outline-none dark:text-white"
+                className="w-full p-3 bg-transparent outline-none dark:text-white"
               />
             </div>
             {errors.email && (
@@ -112,7 +112,7 @@ const SignIn = () => {
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full p-3 bg-transparent border outline-none dark:text-white"
+                className="w-full p-3 bg-transparent outline-none dark:text-white "
               />
               <button
                 type="button"
