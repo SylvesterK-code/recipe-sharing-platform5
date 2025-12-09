@@ -113,7 +113,7 @@ const Signup = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="example@gmail.com"
-                className="w-full bg-transparent outline-none text-gray-800 dark:text-gray-200"
+                className="w-full bg-transparent border outline-none text-gray-800 dark:text-gray-200"
               />
             </div>
             {errors.email && (
@@ -134,7 +134,7 @@ const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Create a strong password"
-                className="w-full bg-transparent outline-none dark:text-white"
+                className="w-full bg-transparent border outline-none dark:text-white"
               />
             </div>
             {errors.password && (
@@ -155,7 +155,7 @@ const Signup = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm your password"
-                className="w-full bg-transparent outline-none dark:text-white"
+                className="w-full bg-transparent border outline-none dark:text-white"
               />
             </div>
             {errors.confirmPassword && (
