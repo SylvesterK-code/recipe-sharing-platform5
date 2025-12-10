@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 const RecipeDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
@@ -24,14 +23,12 @@ const RecipeDetail = () => {
     fetchRecipe();
   }, [id]);
 
-  // ⭐ Updated delete function with image auto-delete
   const handleDelete = async () => {
     const confirmDelete = confirm(
       "Are you sure you want to delete this recipe?"
     );
     if (!confirmDelete) return;
 
-    // Fetch image file path before deleting record
     const { data: recipeData } = await supabase
       .from("recipes")
       .select("image_path")
@@ -40,7 +37,6 @@ const RecipeDetail = () => {
 
     const imagePath = recipeData?.image_path;
 
-    // Delete recipe row
     const { error } = await supabase.from("recipes").delete().eq("id", id);
 
     if (error) {
@@ -48,7 +44,6 @@ const RecipeDetail = () => {
       return;
     }
 
-    // Delete image from storage
     if (imagePath) {
       await supabase.storage.from("recipe-images").remove([imagePath]);
     }
@@ -61,42 +56,50 @@ const RecipeDetail = () => {
     return <div className="text-center mt-20 text-xl">Loading recipe...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-10">
-      <div className="bg-white shadow-lg rounded-xl p-6 max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gray-50 px-4 sm:px-6 py-10">
+      <div className="bg-white shadow-lg rounded-xl p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+        {/* Responsive image */}
         <img
           src={recipe.image}
-          className="w-full h-64 object-cover rounded-xl mb-6"
+          className="w-full h-auto max-h-80 sm:max-h-96 object-cover rounded-xl mb-6"
         />
 
-        <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
+        {/* Title */}
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4">{recipe.title}</h1>
 
-        <p className="text-gray-700 text-lg mb-6">{recipe.summary}</p>
+        {/* Summary */}
+        <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
+          {recipe.summary}
+        </p>
 
-        <h2 className="text-2xl font-semibold mb-2">Ingredients</h2>
-        <ul className="list-disc list-inside">
+        {/* Ingredients */}
+        <h2 className="text-xl sm:text-2xl font-semibold mb-3">Ingredients</h2>
+        <ul className="list-disc list-inside space-y-1 text-gray-800">
           {recipe.ingredients?.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-2">Steps</h2>
-        <ol className="list-decimal list-inside space-y-1">
+        {/* Steps */}
+        <h2 className="text-xl sm:text-2xl font-semibold mt-6 mb-3">Steps</h2>
+        <ol className="list-decimal list-inside space-y-2 text-gray-800">
           {recipe.steps?.map((step, i) => (
             <li key={i}>{step}</li>
           ))}
         </ol>
 
-        <div className="flex gap-4 mt-8">
+        {/* Action buttons (responsive) */}
+        <div className="flex flex-col sm:flex-row gap-4 mt-8 sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg">
           <Link
             to={`/edit-recipe/${id}`}
-            className="bg-blue-600 text-white px-5 py-2 rounded-lg"
+            className="bg-blue-600 hover:bg-blue-700 transition text-white px-5 py-3 rounded-lg text-center sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg"
           >
             Edit Recipe
           </Link>
 
           <button
             onClick={handleDelete}
-            className="bg-red-600 text-white px-5 py-2 rounded-lg"
+            className="bg-red-600 hover:bg-red-700 transition text-white px-5 py-3 rounded-lg sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base lg:px-6 lg:py-3 lg:text-lg"
           >
             Delete Recipe
           </button>

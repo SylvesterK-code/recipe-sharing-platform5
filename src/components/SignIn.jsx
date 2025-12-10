@@ -71,27 +71,27 @@ const SignIn = () => {
   
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-gradient-to-br from-green-100 to-green-300 ">
-      <div className="bg-white  shadow-2xl rounded-2xl w-full max-w-md p-8 md:p-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700  mb-6">
+    <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-gradient-to-br from-green-100 to-green-300 dark:from-gray-900 dark:to-gray-800">
+      <div className="bg-white dark:bg-gray-900 shadow-2xl rounded-2xl w-full max-w-md p-8 md:p-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-green-700 dark:text-green-400 mb-6">
           Welcome Back 👋
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* EMAIL */}
           <div>
-            <label className="block mb-1 font-semibold text-gray-700 ">
+            <label className="block mb-1 font-semibold text-gray-700 dark:text-gray-200">
               Email
             </label>
-            <div className="flex items-center bg-gray-100  rounded-lg px-3">
-              <FaEnvelope className="text-green-600  mr-3" />
+            <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-3">
+              <FaEnvelope className="text-green-600 dark:text-green-400 mr-3" />
               <input
                 type="email"
                 name="email"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-3 bg-transparent outline-none "
+                className="w-full p-3 bg-transparent outline-none dark:text-white"
               />
             </div>
             {errors.email && (
@@ -101,23 +101,23 @@ const SignIn = () => {
 
           {/* PASSWORD */}
           <div>
-            <label className="block mb-1 font-semibold text-gray-700 ">
+            <label className="block mb-1 font-semibold text-gray-700 dark:text-gray-200">
               Password
             </label>
-            <div className="flex items-center bg-gray-100  rounded-lg px-3">
-              <FaLock className="text-green-600  mr-3" />
+            <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-lg px-3">
+              <FaLock className="text-green-600 dark:text-green-400 mr-3" />
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full p-3 bg-transparent outline-none  "
+                className="w-full p-3 bg-transparent outline-none dark:text-white "
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-gray-500 "
+                className="text-gray-500 dark:text-gray-300"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
@@ -131,7 +131,7 @@ const SignIn = () => {
           <div className="text-right">
             <Link
               to="/forgot-password"
-              className="text-blue-600  text-sm hover:underline"
+              className="text-blue-600 dark:text-blue-400 text-sm hover:underline"
             >
               Forgot password?
             </Link>
@@ -149,11 +149,11 @@ const SignIn = () => {
 
         {/* Divider */}
         <div className="flex items-center my-6">
-          <div className="flex-1 h-px bg-gray-300 "></div>
-          <span className="mx-2 text-gray-600  text-sm">
+          <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700"></div>
+          <span className="mx-2 text-gray-600 dark:text-gray-400 text-sm">
             OR
           </span>
-          <div className="flex-1 h-px bg-gray-300 "></div>
+          <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700"></div>
         </div>
 
         {/* GOOGLE LOGIN */}
@@ -180,11 +180,11 @@ const SignIn = () => {
         </button>
 
         {/* SIGNUP LINK */}
-        <p className="text-center text-gray-700  mt-6">
+        <p className="text-center text-gray-700 dark:text-gray-300 mt-6">
           Don't have an account?{" "}
           <Link
             to="/signup"
-            className="text-blue-600  font-semibold hover:underline"
+            className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
           >
             Create one
           </Link>
