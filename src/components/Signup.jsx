@@ -155,7 +155,7 @@ const Signup = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm your password"
-                className="w-full bg-transparent outline-none "
+                className="w-full bg-transparent outline-none"
               />
             </div>
             {errors.confirmPassword && (
