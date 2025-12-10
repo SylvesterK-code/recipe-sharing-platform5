@@ -264,11 +264,10 @@
 
 
 // src/components/EditRecipe.jsx
-
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button";
-import { FaSave, FaHome } from "react-icons/fa";
+import { FaSave } from "react-icons/fa";
 import { supabase } from "../supabaseClient";
 
 const uploadImage = async (file) => {
@@ -306,7 +305,6 @@ const EditRecipe = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Fetch existing recipe
   useEffect(() => {
     const fetchRecipe = async () => {
       const { data, error } = await supabase
@@ -356,11 +354,9 @@ const EditRecipe = () => {
 
     let newImage = { url: image, path: oldImagePath };
 
-    // If user uploads a new file, upload it
     if (image instanceof File) {
       newImage = await uploadImage(image);
 
-      // Delete old image from storage
       if (oldImagePath) {
         await supabase.storage.from("recipe-images").remove([oldImagePath]);
       }
@@ -393,70 +389,56 @@ const EditRecipe = () => {
     return <div className="text-center mt-20 text-xl">Loading recipe...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black px-4 sm:px-6 py-8 md:py-12 bg-gradient-to-br from-green-200 to-green-400 dark:from-gray-900 dark:to-gray-800">
-      {/* <div className="mb-6">
-        <Link to="/home">
-          <Button variant="primary" icon={FaHome}>
-            Back to Home
-          </Button>
-        </Link>
-      </div> */}
-
-      <div className="max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-xl shadow-xl">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-200">
-          Edit Recipe
-        </h2>
+    <div className="min-h-screen bg-gray-50 px-4 sm:px-6 py-8 md:py-12 bg-gradient-to-br from-green-200 to-green-400">
+      <div className="max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto p-6 sm:p-8 bg-white rounded-xl shadow-xl">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">Edit Recipe</h2>
 
         <form onSubmit={handleUpdate} className="space-y-6">
           {/* Title */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
+            <label className="block font-medium text-gray-700">
               Recipe Title
             </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-gray-800 dark:text-white"
+              className="w-full p-3 border rounded-lg bg-gray-100"
             />
             {errors.title && <p className="text-red-500">{errors.title}</p>}
           </div>
 
           {/* Summary */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
-              Summary
-            </label>
+            <label className="block font-medium text-gray-700">Summary</label>
             <input
               type="text"
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
-              className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-gray-800 dark:text-white"
+              className="w-full p-3 border rounded-lg bg-gray-100"
             />
             {errors.summary && <p className="text-red-500">{errors.summary}</p>}
           </div>
 
           {/* Image Upload */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
+            <label className="block font-medium text-gray-700">
               Recipe Image
             </label>
 
             <input
               type="file"
               onChange={(e) => setImage(e.target.files[0])}
-              className="border p-3 w-full rounded bg-white dark:bg-gray-800 dark:text-white"
+              className="border p-3 w-full rounded bg-white"
             />
 
-            <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
-              or paste new image URL
-            </p>
+            <p className="text-gray-600 text-sm mt-2">or paste new image URL</p>
 
             <input
               type="url"
               value={typeof image === "string" ? image : ""}
               onChange={(e) => setImage(e.target.value)}
-              className="w-full p-3 border rounded-lg mt-2 bg-gray-100 dark:bg-gray-800 dark:text-white"
+              className="w-full p-3 border rounded-lg mt-2 bg-gray-100"
             />
 
             <div className="mt-3">
@@ -479,14 +461,14 @@ const EditRecipe = () => {
 
           {/* Ingredients */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
+            <label className="block font-medium text-gray-700">
               Ingredients (one per line)
             </label>
 
             <textarea
               value={ingredients}
               onChange={(e) => setIngredients(e.target.value)}
-              className="w-full p-3 h-32 border rounded-lg bg-gray-100 dark:bg-gray-800 dark:text-white"
+              className="w-full p-3 h-32 border rounded-lg bg-gray-100"
             />
             {errors.ingredients && (
               <p className="text-red-500">{errors.ingredients}</p>
@@ -495,14 +477,14 @@ const EditRecipe = () => {
 
           {/* Steps */}
           <div>
-            <label className="block font-medium text-gray-700 dark:text-gray-300">
+            <label className="block font-medium text-gray-700">
               Steps (one per line)
             </label>
 
             <textarea
               value={steps}
               onChange={(e) => setSteps(e.target.value)}
-              className="w-full p-3 h-32 border rounded-lg bg-gray-100 dark:bg-gray-800 dark:text-white"
+              className="w-full p-3 h-32 border rounded-lg bg-gray-100"
             />
             {errors.steps && <p className="text-red-500">{errors.steps}</p>}
           </div>
