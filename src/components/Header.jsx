@@ -42,7 +42,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-green-600 shadow-md dark:bg-gray-900">
+    <header className="fixed top-0 left-0 w-full z-50 bg-green-600 shadow-md ">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-white font-bold text-xl">

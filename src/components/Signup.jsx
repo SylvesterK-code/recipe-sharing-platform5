@@ -72,19 +72,19 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-200 to-green-500 dark:from-gray-900 dark:to-gray-800 px-4 py-12">
-      <div className="bg-white dark:bg-gray-900 shadow-2xl rounded-2xl p-8 w-full max-w-md">
-        <h2 className="text-3xl font-bold text-center text-green-700 dark:text-green-400 mb-2">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-200 to-green-500  px-4 py-12">
+      <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md">
+        <h2 className="text-3xl font-bold text-center text-green-700  mb-2">
           Create Account
         </h2>
 
         <form className="space-y-5" onSubmit={handleSubmit}>
           {/* Full Name */}
           <div>
-            <label className="text-gray-700 dark:text-gray-300 font-semibold mb-1 block">
+            <label className="text-gray-700  font-semibold mb-1 block">
               Full Name
             </label>
-            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 ">
               <FaUser className="text-green-600 mr-3" />
               <input
                 type="text"
@@ -92,7 +92,7 @@ const Signup = () => {
                 value={formData.fullname}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className="w-full bg-transparent outline-none text-gray-800 dark:text-gray-200"
+                className="w-full bg-transparent outline-none text-gray-800 "
               />
             </div>
             {errors.fullname && (
@@ -102,10 +102,10 @@ const Signup = () => {
 
           {/* Email */}
           <div>
-            <label className="text-gray-700 dark:text-gray-300 font-semibold mb-1 block">
+            <label className="text-gray-700  font-semibold mb-1 block">
               Email (use valid email)
             </label>
-            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 ">
               <FaEnvelope className="text-green-600 mr-3" />
               <input
                 type="email"
@@ -113,7 +113,7 @@ const Signup = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="example@gmail.com"
-                className="w-full bg-transparent outline-none text-gray-800 dark:text-gray-200"
+                className="w-full bg-transparent outline-none text-gray-800 "
               />
             </div>
             {errors.email && (
@@ -123,10 +123,10 @@ const Signup = () => {
 
           {/* Password */}
           <div>
-            <label className="text-gray-700 dark:text-gray-300 font-semibold mb-1 block">
+            <label className="text-gray-700  font-semibold mb-1 block">
               Password
             </label>
-            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 ">
               <FaLock className="text-green-600 mr-3" />
               <input
                 type="password"
@@ -134,7 +134,7 @@ const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Create a strong password"
-                className="w-full bg-transparent outline-none dark:text-white"
+                className="w-full bg-transparent outline-none "
               />
             </div>
             {errors.password && (
@@ -144,10 +144,10 @@ const Signup = () => {
 
           {/* Confirm Password */}
           <div>
-            <label className="text-gray-700 dark:text-gray-300 font-semibold mb-1 block">
+            <label className="text-gray-700  font-semibold mb-1 block">
               Confirm Password
             </label>
-            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 dark:bg-gray-800">
+            <div className="flex items-center border rounded-lg px-3 py-3 bg-gray-50 ">
               <FaLock className="text-green-600 mr-3" />
               <input
                 type="password"
@@ -155,7 +155,7 @@ const Signup = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm your password"
-                className="w-full bg-transparent outline-none dark:text-white"
+                className="w-full bg-transparent outline-none "
               />
             </div>
             {errors.confirmPassword && (
@@ -172,11 +172,11 @@ const Signup = () => {
           </button>
         </form>
 
-        <p className="text-center text-gray-700 dark:text-gray-300 mt-6">
+        <p className="text-center text-gray-700  mt-6">
           Already have an account?{" "}
           <Link
             to="/signin"
-            className="text-blue-700 dark:text-blue-400 hover:underline font-semibold"
+            className="text-blue-700  hover:underline font-semibold"
           >
             Sign In
           </Link>
