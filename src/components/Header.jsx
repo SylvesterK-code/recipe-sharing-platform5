@@ -93,7 +93,7 @@ const Header = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <ul className="md:hidden bg-green-700 dark:bg-gray-800 px-6 py-4 space-y-4 text-white animate-slideDown">
+        <ul className="md:hidden bg-green-700 px-6 py-4 space-y-4 text-white animate-slideDown">
           {(user ? loggedInLinks : loggedOutLinks).map(
             ({ to, label, icon: Icon }) => (
               <li key={to}>
