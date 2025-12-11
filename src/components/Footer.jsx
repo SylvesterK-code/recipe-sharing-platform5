@@ -10,7 +10,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-gray-300 py-8 mt-12">
+    <footer className="bg-gray-800 text-gray-300 py-8 mt-0">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center md:flex-row md:justify-between">
         {/* Copyright */}
         <p className="text-center md:text-left mb-4 md:mb-0">

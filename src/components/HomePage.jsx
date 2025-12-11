@@ -24,12 +24,11 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 px-4 sm:px-6 md:px-10 py-8 md:py-12">
-      {/* Top right info */}
+
       <p className="text-right text-xs sm:text-sm text-blue-500 pb-2 pt-4 sm:pb-4">
         Sign in or Sign up to add a recipe
       </p>
 
-      {/* Main Title */}
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-700 text-center mb-10 pt-4">
         Recipe Sharing Platform
       </h1>
@@ -38,7 +37,6 @@ const Home = () => {
         All Recipes
       </h2>
 
-      {/* No recipes */}
       {recipes.length === 0 ? (
         <p className="text-center text-lg sm:text-xl text-gray-500 mt-10 text-red-500">
           No recipes found...
@@ -65,7 +63,6 @@ const Home = () => {
                   h-full
                 "
               >
-                {/* Recipe Image */}
                 <img
                   src={r.image}
                   alt={r.title}
@@ -77,30 +74,37 @@ const Home = () => {
                 />
 
                 <div className="flex flex-col p-4 sm:p-5 flex-grow">
-                  {/* Title */}
+
                   <h2 className="text-lg sm:text-xl font-semibold text-green-800 mb-2">
                     {r.title}
                   </h2>
 
-                  {/* Summary */}
                   <p className="text-gray-600 text-sm sm:text-base line-clamp-3">
                     {r.summary}
                   </p>
 
-                  {/* ADDED: Person who added the recipe */}
+                  {/* Added by */}
                   <p className="font-medium text-yellow-500 text-xs sm:text-sm mt-3 bold">
                     Added by:{" "}
-                    <span className="font-medium text-orange-700 text-xs sm:text-sm mt-3 italic">
+                    <span className="font-medium text-orange-700 italic">
                       {r.created_by || "Unknown Author"}
                     </span>
                   </p>
 
-                  {/* VIEW DETAILS BUTTON */}
+                  {/* ⭐ NEW: Date Posted */}
+                  <p className="text-gray-500 text-xs sm:text-sm mt-1">
+                    Posted on:{" "}
+                    <span className="italic">
+                      {new Date(r.created_at).toLocaleDateString()}
+                    </span>
+                  </p>
+
                   <div className="mt-4 ">
                     <Button icon={FaArrowRight} iconPosition="right">
                       View Details
                     </Button>
                   </div>
+
                 </div>
               </div>
             </Link>

@@ -273,6 +273,21 @@ const RecipeDetail = () => {
           </span>
         </p>
 
+        {/* ⭐ DISPLAY DATE ADDED */}
+        <p className="text-gray-500 text-xs sm:text-sm mb-6">
+          Date added:{" "}
+          <span className="italic">
+            {recipe.created_at
+              ? new Date(recipe.created_at).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              : "Unknown date"}
+          </span>
+</p>
+
+
         <h2 className="text-xl sm:text-2xl font-semibold mb-3 text-green-600">
           Ingredients
         </h2>
