@@ -26,7 +26,7 @@ const Header = () => {
     { to: "/", label: "Home", icon: FaHome },
     { to: "/addrecipe", label: "Add Recipe", icon: FaPlus },
     { to: "/contact", label: "Contact", icon: FaEnvelope },
-    { to: "/about", label: "About Us", icon: FaInfoCircle },
+    { to: "/about", label: "About Us", icon: FaInfoCircle }
   ];
 
   // Links when user is logged out
@@ -34,6 +34,8 @@ const Header = () => {
     { to: "/", label: "Home", icon: FaHome },
     { to: "/signin", label: "Sign In", icon: FaSignInAlt },
     { to: "/signup", label: "Sign Up", icon: FaUserPlus },
+    { to: "/contact", label: "Contact", icon: FaEnvelope },
+    { to: "/about", label: "About Us", icon: FaInfoCircle }
   ];
 
   // 🔥 Logout handler with redirect

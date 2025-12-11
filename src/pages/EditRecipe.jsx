@@ -294,6 +294,8 @@ const EditRecipe = () => {
   const navigate = useNavigate();
 
   const [recipe, setRecipe] = useState(null);
+  const [user, setUser] = useState(null);
+  const [isOwner, setIsOwner] = useState(false);
 
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
@@ -305,6 +307,17 @@ const EditRecipe = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
+  // Fetch logged-in user
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      setUser(data?.user || null);
+    };
+
+    fetchUser();
+  }, []);
+
+  // Fetch recipe and check ownership
   useEffect(() => {
     const fetchRecipe = async () => {
       const { data, error } = await supabase
@@ -318,6 +331,14 @@ const EditRecipe = () => {
         return;
       }
 
+      // Protect edit page
+      if (data.created_by_id !== user?.id) {
+        alert("You are not allowed to edit this recipe.");
+        navigate(`/recipe/${id}`);
+        return;
+      }
+
+      setIsOwner(true);
       setRecipe(data);
 
       setTitle(data.title);
@@ -328,8 +349,8 @@ const EditRecipe = () => {
       setSteps(data.steps.join("\n"));
     };
 
-    fetchRecipe();
-  }, [id]);
+    if (user) fetchRecipe();
+  }, [id, user]);
 
   const validateForm = () => {
     const newErrors = {};

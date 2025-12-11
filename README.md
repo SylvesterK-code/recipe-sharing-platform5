@@ -1568,3 +1568,24 @@ ICT/Computing Teacher • Full-Stack Developer • Data Enthusiast
 ## close session once the user logged out
 ## url to a page should not work when a user did not login except homepage
 ## user should not be able to delete a recipe he/she did not add. show the user message "cannot delete"
+
+// recipe detail
+
+✔ Only the person who created the recipe can:
+
+✏️ Edit
+
+🗑️ Delete
+
+❌ Everyone else:
+
+Cannot see the buttons
+
+Cannot delete even with manual URL
+
+Gets a permission warning
+
+Add likes & comments system
+
+
+
