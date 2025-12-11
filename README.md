@@ -1589,3 +1589,13 @@ Add likes & comments system
 
 
 
+
+
+
+If you want, I can also:
+
+✅ Add role-based permissions
+✅ Improve UI design
+✅ Add comments & likes
+✅ Add profile pages
+✅ Add search & categories

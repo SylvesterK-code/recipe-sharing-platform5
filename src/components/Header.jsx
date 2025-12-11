@@ -39,9 +39,11 @@ const Header = () => {
   ];
 
   // 🔥 Logout handler with redirect
-  const handleLogout = () => {
-    logout(() => navigate("/")); // redirect to home page
-  };
+const handleLogout = async () => {
+  await logout();   // logout the user
+  navigate("/");    // redirect to homepage
+};
+
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-green-600 shadow-md ">
@@ -113,17 +115,17 @@ const Header = () => {
 
           {/* 🔥 Mobile logout */}
           {user && (
-            <button
-              onClick={() => {
-                setMenuOpen(false);
-                handleLogout();
-              }}
-              className="flex items-center space-x-2 py-2 hover:text-yellow-300"
-            >
-              <FaSignOutAlt />
-              <span>Logout</span>
-            </button>
-          )}
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              handleLogout();
+            }}
+            className="flex items-center space-x-2 py-2 hover:text-yellow-300"
+          >
+            <FaSignOutAlt />
+            <span>Logout</span>
+          </button>
+        )}
         </ul>
       )}
     </header>
